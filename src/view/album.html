@@ -1,11 +1,9 @@
-<div class="container" ng-controller='getAlbums' >
-  <div class="image" ng-repeat='album in albums | filter: albumId'>
+<div class="container" ng-controller='getAlbum' >
+  <div class="image" ng-repeat='album in photos'>
     <!-- <img ng-src='{{album.thumbnailUrl}}'> -->
     <div class="album">
-      <a href="#!album">Go to album...
-        <i class="fa fa-picture-o" aria-hidden="true"></i>
-      </a>
     </div>
+    <span>{{album.albumId}}</span>
     <span>{{album.title}}</span>
   </div>
 </div>

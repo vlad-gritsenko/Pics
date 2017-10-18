@@ -1,10 +1,11 @@
-<div class="container" ng-controller='getPhones' >
+<div class="container" ng-controller='getPhotos' >
   <div class="image" ng-repeat='img in photos | limitTo:limit'>
     <img ng-src='{{img.thumbnailUrl}}'>
-    <div class="album">
-      <a ng-href="#!/album/{{img.albumId}}">Go to album...
+    <div class="album" ng-controller='getAlbum'>
+      <a ng-href="#!/album/1">Go to album...</a>
+      <button ng-click='test()'> click here
         <i class="fa fa-picture-o" aria-hidden="true"></i>
-      </a>
+      </button>
     </div>
     <span>{{img.albumId}}</span>
     <span>{{img.title}}</span>
