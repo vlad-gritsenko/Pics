@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>app</title>
+</head>
+<body ng-app = 'pics-app'>
+
+  <nav>
+    <div class="container">
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        Main
+      </a>
+
+      <a href="https://www.google.com.ua/" target="_blank">
+        <i class="fa fa-google" aria-hidden="true"></i>
+        Google
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" ng-controller='getData'>
+
+      <div class="image" ng-repeat='img in photos | limitTo:limit'>
+        <img ng-src='{{img.thumbnailUrl}}'>
+        <span>{{img.title}}</span>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <span class="name">Vladislav Gritsenko</span>
+      <a href="#" class="github-fork">foooooooooork</a>
+    </div>
+  </footer>
+  <script src="https://use.fontawesome.com/48a223b83b.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js'></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
