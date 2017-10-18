@@ -69,9 +69,16 @@ main .image {
       -ms-flex-preferred-size: 33.33%;
           flex-basis: 33.33%;
   margin: 20px 0; }
+  main .image .album {
+    margin: 10px 0; }
+    main .image .album a {
+      color: #000;
+      text-decoration: none; }
+      main .image .album a:hover {
+        color: blue; }
   main .image span {
     max-width: 150px;
-    margin: 10px auto 0 auto; }
+    margin: 0 auto; }
 
 footer {
   display: -webkit-box;

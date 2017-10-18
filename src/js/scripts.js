@@ -1,14 +1,29 @@
-var app = angular.module('pics-app', []);
+var app = angular.module('pics-app', ['ngRoute']);
 
-app.controller('getData', function ($scope, $http) {
-  var url = 'http://jsonplaceholder.typicode.com/photos';
+app.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'view/directory.html',
+      controller: 'getPhones'
+    })
+    .when('/album/:album_id', {
+      templateUrl: 'view/album.html',
+      controller: 'getAlbums'
+    }).otherwise({
+      redirectTo:'/'
+    });
+}]);
 
+
+var photosUrl = 'http://jsonplaceholder.typicode.com/photos';
+var albumUrl = 'http://jsonplaceholder.typicode.com/albums/:album_id/photos';
+
+app.controller('getPhones', function ($scope, $http) {
 
   $scope.limit = 10;
 
-  $http.get(url).then(function(response) {
+  $http.get(photosUrl).then(function(response) {
     $scope.photos = response.data;
-    console.log(response.data);
   });
 
 
@@ -16,12 +31,16 @@ app.controller('getData', function ($scope, $http) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       $scope.limit += 5;
 
-      $http.get(url).then(function(response) {
+      $http.get(photosUrl).then(function(response) {
         $scope.photos = response.data;
-
       });
     }
   };
+});
 
-
+app.controller('getAlbums', function ($scope, $http, $routeParams) {
+  $http.get(albumUrl).then(function(response) {
+    $scope.albums = response.data;
+    console.log($scope.albums);
+  });
 });

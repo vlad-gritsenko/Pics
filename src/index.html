@@ -17,7 +17,6 @@
         <i class="fa fa-home" aria-hidden="true"></i>
         Main
       </a>
-
       <a href="https://www.google.com.ua/" target="_blank">
         <i class="fa fa-google" aria-hidden="true"></i>
         Google
@@ -25,16 +24,7 @@
     </div>
   </nav>
 
-  <main>
-    <div class="container" ng-controller='getData'>
-
-      <div class="image" ng-repeat='img in photos | limitTo:limit'>
-        <img ng-src='{{img.thumbnailUrl}}'>
-        <span>{{img.title}}</span>
-      </div>
-    </div>
-  </main>
-
+  <main ng-view></main>
 
   <footer>
     <div class="container">
@@ -43,7 +33,9 @@
     </div>
   </footer>
   <script src="https://use.fontawesome.com/48a223b83b.js"></script>
+
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>
