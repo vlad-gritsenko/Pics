@@ -1,1 +1,1 @@
-# app-starter-kit
+# Picture viewing app
