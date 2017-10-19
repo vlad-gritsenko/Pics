@@ -1,13 +1,11 @@
-<div class="container" ng-controller='getPhotos' >
-  <div class="image" ng-repeat='img in photos | limitTo:limit'>
-    <img ng-src='{{img.thumbnailUrl}}'>
-    <div class="album" ng-controller='getAlbum'>
-      <a ng-href="#!/album/1">Go to album...</a>
-      <button ng-click='test()'> click here
+<div class="container" ng-controller='AllImagesController'>
+  <div class="image-outer" ng-repeat='images in allImages | limitTo:limit'>
+    <div class="image-inner">
+      <img ng-src='{{images.thumbnailUrl}}'>
+      <a ng-href="#!/album/{{images.albumId}}">open album
         <i class="fa fa-picture-o" aria-hidden="true"></i>
-      </button>
+      </a>
+      <p>{{images.title}}</p>
     </div>
-    <span>{{img.albumId}}</span>
-    <span>{{img.title}}</span>
   </div>
 </div>

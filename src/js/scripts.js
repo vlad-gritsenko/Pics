@@ -1,45 +1,31 @@
 var app = angular.module('pics-app', ['ngRoute']);
 
+// Routing config
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'view/directory.html',
-      controller: 'getPhotos'
+      controller: 'AllImagesController'
     })
     .when('/album/:album_id', {
       templateUrl: 'view/album.html',
-      controller: 'getAlbum'
+      controller: 'AlbumImagesController'
+    })
+    .when('/image/:image_id', {
+      templateUrl: 'view/image.html',
+      controller: 'SingleImageController'
     }).otherwise({
       redirectTo:'/'
     });
 }]);
 
+// Get all photos and display them on the main page
+angular.module('pics-app').controller('AllImagesController', function () {});
 
-var photosUrl = 'http://jsonplaceholder.typicode.com/photos';
-var albumUrl = 'http://jsonplaceholder.typicode.com/albums/:album_id/photos';
 
-app.controller('getPhotos', function ($scope, $http) {
+// Show photos only for associated album
+angular.module('pics-app').controller('AlbumImagesController', function () {});
 
-  $scope.limit = 10;
 
-  $http.get(photosUrl).then(function(response) {
-    $scope.photos = response.data;
-  });
-
-  window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      $scope.limit += 5;
-
-      $http.get(photosUrl).then(function(response) {
-        $scope.photos = response.data;
-      });
-    }
-  };
-});
-
-app.controller('getAlbum', ['$scope', '$location', '$interpolate', function ($scope, $location, $interpolate) {
-  $scope.test = function() {
-    var url = $interpolate('/album/{{album_id}}')
-    $location.path(url)
-  }
-}]);
+// Show big image 600x600
+angular.module('pics-app').controller('SingleImageController', function () {});
