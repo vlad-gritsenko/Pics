@@ -1,6 +1,6 @@
 app.controller('AlbumImagesController', function ($scope, $http, $routeParams) {
 
-  var albumUrl = 'http://jsonplaceholder.typicode.com/albums/'+$scope.albumId+'/photos';
+  var albumUrl = 'https://jsonplaceholder.typicode.com/albums/'+$scope.albumId+'/photos';
 
   $scope.albumId = $routeParams.album_id;
 

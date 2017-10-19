@@ -1,5 +1,5 @@
 app.controller('AllImagesController', function ($scope, $http) {
-  var photosUrl = 'http://jsonplaceholder.typicode.com/photos';
+  var photosUrl = 'https://jsonplaceholder.typicode.com/photos';
 
   $scope.limit = 10;
 
